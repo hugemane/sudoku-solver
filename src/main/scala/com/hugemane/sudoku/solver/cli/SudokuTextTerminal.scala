@@ -21,7 +21,7 @@ class SudokuTextTerminal(board: SudokuBoard) {
 
   private def displayBoardValues() {
     for (r <- 0 until board.rows; c <- 0 until board.columns) {
-      val block = board.matrix(Point(r, c))
+      val block = board.block(Point(r, c))
       val value = block.value.getOrElse(nonSolvedValue)
       val valueFormatted = s" $value "
 
