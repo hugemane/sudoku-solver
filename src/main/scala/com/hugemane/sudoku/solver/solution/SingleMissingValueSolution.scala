@@ -1,8 +1,8 @@
-package com.hugemane.sudoku.solver.solution.algorithm
+package com.hugemane.sudoku.solver.solution
 
 import com.hugemane.sudoku.solver.model.{ Block, Point }
 
-class SingleMissingValueAlgorithm extends AlgorithmBase {
+class SingleMissingValueSolution extends SolutionBase {
   type Solved = Option[(Point, Block)]
 
   override def solve(values: Map[Point, Block]): Solved = {

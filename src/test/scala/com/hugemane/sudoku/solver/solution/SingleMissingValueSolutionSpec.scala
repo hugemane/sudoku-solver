@@ -1,9 +1,9 @@
-package com.hugemane.sudoku.solver.solution.algorithm
+package com.hugemane.sudoku.solver.solution
 
 import com.hugemane.sudoku.solver.TestSpec
 import com.hugemane.sudoku.solver.model.{ Block, Point }
 
-class SingleMissingValueAlgorithmSpec extends TestSpec {
+class SingleMissingValueSolutionSpec extends TestSpec {
 
   it should "solve missing line block value" in {
     val line = Map(
@@ -13,8 +13,8 @@ class SingleMissingValueAlgorithmSpec extends TestSpec {
       Point(0, 3) -> Block(Some(4))
     )
 
-    val algorithm = new SingleMissingValueAlgorithm()
-    val solved = algorithm.solve(line)
+    val solution = new SingleMissingValueSolution()
+    val solved = solution.solve(line)
 
     val (point, block) = solved.get
 
@@ -31,8 +31,8 @@ class SingleMissingValueAlgorithmSpec extends TestSpec {
       Point(1, 1) -> Block(Some(3))
     )
 
-    val algorithm = new SingleMissingValueAlgorithm()
-    val solved = algorithm.solve(line)
+    val solution = new SingleMissingValueSolution()
+    val solved = solution.solve(line)
 
     val (point, block) = solved.get
 
@@ -49,8 +49,8 @@ class SingleMissingValueAlgorithmSpec extends TestSpec {
       Point(0, 3) -> Block(None)
     )
 
-    val algorithm = new SingleMissingValueAlgorithm()
-    val solved = algorithm.solve(line)
+    val solution = new SingleMissingValueSolution()
+    val solved = solution.solve(line)
 
     val (point, block) = solved.get
 
@@ -67,8 +67,8 @@ class SingleMissingValueAlgorithmSpec extends TestSpec {
       Point(0, 3) -> Block(None)
     )
 
-    val algorithm = new SingleMissingValueAlgorithm()
-    val solved = algorithm.solve(line)
+    val solution = new SingleMissingValueSolution()
+    val solved = solution.solve(line)
 
     solved shouldBe None
   }

@@ -4,10 +4,15 @@
 Project to solve a Sudoku puzzle and to test the boundaries of how a program can solve it.
 
 Basic idea is to set initial values on a Sudoku puzzle and let the program execute and solve in real time.
-This will simply employ a set of algorithms to solve the puzzle. These algorithms will run in parallel.
 
-The design is for a effective pluggable algorithm architecture to be implemented, such that anyone can plug in a new algorithm.
-Over time an existing algorithm can be improved and new ones added.
+Attempting to have a set of "Machine Intelligences" do their part to solve their individual problems.
+By combining all the individual parts - the whole should be solved.
+
+"Machine Intelligences" could employ an algorithm or not to solve the puzzle. 
+Each of these "Machine Intelligences" run in parallel.
+
+The design is for a effective pluggable solution (Machine Intelligence) architecture to be implemented, 
+such that anyone can plug in a new solution. Over time an existing solution can be improved and new ones added.
 
 # Goal
 Should be able to solve any puzzle, even down to just having 1 number.
