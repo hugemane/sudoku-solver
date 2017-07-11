@@ -1,7 +1,7 @@
 package com.hugemane.sudoku.solver.cli
 
 import com.hugemane.sudoku.solver.TerminalOutCaptureSpec
-import com.hugemane.sudoku.solver.model.{ Point, SudokuBoard }
+import com.hugemane.sudoku.solver.model.SudokuBoard
 
 class SudokuTextTerminalSpec extends TerminalOutCaptureSpec {
 
@@ -56,10 +56,10 @@ class SudokuTextTerminalSpec extends TerminalOutCaptureSpec {
   it should "display 4x4 sudoku board with initial values" in {
     val board = SudokuBoard(4, 4)
     board.setInitialValues(Map(
-      Point(0, 3) -> 2,
-      Point(1, 1) -> 1, Point(1, 2) -> 3,
-      Point(2, 1) -> 4, Point(2, 2) -> 2,
-      Point(3, 0) -> 1
+      (0, 3) -> 2,
+      (1, 1) -> 1, (1, 2) -> 3,
+      (2, 1) -> 4, (2, 2) -> 2,
+      (3, 0) -> 1
     ))
 
     val terminal = new SudokuTextTerminal(board)

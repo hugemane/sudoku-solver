@@ -1,6 +1,7 @@
 package com.hugemane.sudoku.solver.solution
 
-import com.hugemane.sudoku.solver.model.{ Block, Point }
+import com.hugemane.sudoku.solver.BoardPoint.Point
+import com.hugemane.sudoku.solver.model.Block
 
 class SingleMissingValueSolution extends SolutionBase {
   type Solved = Option[(Point, Block)]

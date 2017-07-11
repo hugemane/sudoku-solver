@@ -1,18 +1,24 @@
 package com.hugemane.sudoku.solver.cli
 
 import com.hugemane.sudoku.solver.cli.SudokuBoardCharacters._
-import com.hugemane.sudoku.solver.model.{ Point, SudokuBoard }
+import com.hugemane.sudoku.solver.model.SudokuBoard
 
 import scala.math._
 
 class SudokuTextTerminal(board: SudokuBoard) {
   private val rowSquareRoot = sqrt(board.rows)
-  private val columnSquareRoot = sqrt(board.rows)
+  private val columnSquareRoot = sqrt(board.columns)
 
-  def display() {
+  def display(boardTitleText: Option[String] = None) {
+    displayBoardTitleText(boardTitleText)
     displayBoardTopBorder()
     displayBoardValues()
     displayBoardBottomBorder()
+  }
+
+  private def displayBoardTitleText(boardTitleText: Option[String]) {
+    if (boardTitleText.isEmpty) return
+    printf("%s%c", boardTitleText.get, '\n')
   }
 
   private def displayBoardTopBorder() {
@@ -21,7 +27,7 @@ class SudokuTextTerminal(board: SudokuBoard) {
 
   private def displayBoardValues() {
     for (r <- 0 until board.rows; c <- 0 until board.columns) {
-      val block = board.block(Point(r, c))
+      val block = board.getBlock((r, c))
       val value = block.value.getOrElse(nonSolvedValue)
       val valueFormatted = s" $value "
 
@@ -52,7 +58,6 @@ class SudokuTextTerminal(board: SudokuBoard) {
             print(`│`)
           }
       }
-
     }
   }
 
@@ -76,5 +81,11 @@ class SudokuTextTerminal(board: SudokuBoard) {
           }
       }
     }
+  }
+}
+
+object SudokuTextTerminal {
+  def apply(board: SudokuBoard): SudokuTextTerminal = {
+    new SudokuTextTerminal(board)
   }
 }
